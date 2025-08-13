@@ -1,0 +1,27 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "scheduler-worker",
+	"main": "src/index.ts",
+	"compatibility_date": "2025-08-13",
+	"observability": {
+		"enabled": true
+	},
+	"triggers": {
+		"crons": [
+			"0 3 * * *"
+		]
+	},
+	"r2_buckets": [
+		{
+			"binding": "R2",
+			"bucket_name": "dedicart-uploads"
+		}
+	],
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "dedicart_db",
+			"database_id": "98db79af-542a-4a30-913e-cf2254a0560a"
+		}
+	]
+}
