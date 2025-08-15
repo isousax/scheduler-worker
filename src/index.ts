@@ -3,7 +3,7 @@ export interface Env {
 	R2: R2Bucket;
 }
 
-const HOURS_INTENTION_TTL = 2; // 2 horas
+const HOURS_INTENTION_TTL = 48; // 2 horas
 const DAYS_R2_TTL = 30; // 30 dias
 const R2_TEMP_PREFIX = 'temp/'; // prefixo usado nos uploads
 
