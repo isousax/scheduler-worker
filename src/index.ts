@@ -29,9 +29,9 @@ async function cleanupOldIntentions(env: Env) {
 	const selectSql = `
     SELECT intention_id, qr_code
     FROM intentions
-    WHERE status != ? AND created_at <= ?
+    WHERE status = ? AND created_at <= ?
   `;
-	const selectRes = await env.DB.prepare(selectSql).bind('approved', cutoff).all();
+	const selectRes = await env.DB.prepare(selectSql).bind('pending', cutoff).all();
 	const rows = (selectRes as any).results ?? (selectRes as any) ?? [];
 
 	if (!rows.length) {
